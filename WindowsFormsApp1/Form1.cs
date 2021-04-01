@@ -16,7 +16,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             SavingsAccount s = new SavingsAccount();
-            s.Deposit(100M);
+            s.Deposit((decimal)50);
+            
             
             
         }

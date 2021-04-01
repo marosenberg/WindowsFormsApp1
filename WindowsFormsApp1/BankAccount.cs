@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         {
             actBalance += amount;
         }
-        public void Withdrawl(decimal amount)
+        public virtual void Withdrawl(decimal amount)
         {
             actBalance -= amount;
         }

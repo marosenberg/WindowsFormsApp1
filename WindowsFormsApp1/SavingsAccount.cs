@@ -15,6 +15,13 @@ namespace WindowsFormsApp1
         {
         }
         public decimal InterestRate { get; set; }
-
-    }
+        public override void Withdrawl(decimal amount)
+        {
+            if (amount > AccountBalance)
+            {
+                throw new Exception();
+            }
+            base.Withdrawl(amount);
+        }
+    }   
 }
