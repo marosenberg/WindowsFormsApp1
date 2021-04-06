@@ -6,8 +6,19 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
+    public delegate void OverdrawDelegate(object sender, MyEventArgs e);
     public class BankAccount
     {
+        public event OverdrawDelegate Overdraw;
+
+        private void OverdrawEvent()
+        {
+            if (this.Overdraw != null)
+            {
+                MyEventArgs e = new MyEventArgs(actBalance);
+                this.Overdraw(this, e);
+            }
+        }
         public BankAccount(decimal amount)
         {
             actBalance = amount;
@@ -32,6 +43,10 @@ namespace WindowsFormsApp1
         }
         public virtual void Withdrawl(decimal amount)
         {
+            if (amount > actBalance)
+            {
+                OverdrawEvent();
+            }
             actBalance -= amount;
         }
         private decimal actBalance;

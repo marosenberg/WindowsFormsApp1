@@ -12,14 +12,23 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        BankAccount s;
         public Form1()
         {
             InitializeComponent();
-            SavingsAccount s = new SavingsAccount();
-            s.Deposit((decimal)50);
-            
-            
-            
+            s = new BankAccount(100);
+            s.Overdraw += S_Overdraw;
+            s.Overdraw += S_Overdraw;
+        }
+
+        private void S_Overdraw(object sender, MyEventArgs e)
+        {
+            label1.Text = label1.Text + "Event fired and Balance is: " + e.Bal.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            s.Withdrawl(decimal.Parse(myTextBox1.Text));
         }
     }
 }
