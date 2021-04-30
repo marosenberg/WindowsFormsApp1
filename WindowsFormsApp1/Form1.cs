@@ -16,11 +16,16 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            int i = 5;
+            myTextBox1.Text = i.AddOne("Hello: ");
             button1.Click += button1_Click;
             button1.MouseEnter += John;
             s = new BankAccount(100);
             s.Overdraw += S_Overdraw;
             s.Overdraw += S_Overdraw;
+            Mymetyhod(s);
+            SavingsAccount b = new SavingsAccount();
+            Mymetyhod(b);
         }
 
         private void John(object sender, EventArgs e)
@@ -36,6 +41,11 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             s.Withdrawl(decimal.Parse(myTextBox1.Text));
+        }
+
+        public static void Mymetyhod(BankAccount b)
+        {
+
         }
     }
 }
