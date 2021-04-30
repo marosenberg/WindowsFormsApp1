@@ -54,7 +54,5 @@ namespace WindowsFormsApp1
         {
             get { return actBalance; }
         }
-
-
     }
 }

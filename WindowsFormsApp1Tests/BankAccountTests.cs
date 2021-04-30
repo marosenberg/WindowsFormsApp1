@@ -14,10 +14,12 @@ namespace WindowsFormsApp1.Tests
         [TestMethod()]
         public void WithdrawlTest()
         {
-            decimal amt = 25;
-            BankAccount b = new BankAccount(50);
+            decimal initialDep = 50;
+            decimal amt = 30;
+            BankAccount b = new BankAccount(initialDep);
             b.Withdrawl(amt);
-            Assert.AreEqual(amt, b.AccountBalance);
+            decimal expected = initialDep - amt;
+            Assert.AreEqual(expected, b.AccountBalance);
         }
 
         [TestMethod()]
